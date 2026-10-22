@@ -7,8 +7,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a1a; }
-        
-        /* NAV */
+
         nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
         .logo { font-size: 20px; font-weight: 700; color: #1a1a1a; }
         .logo span { color: #2563eb; }
@@ -17,7 +16,6 @@
         .nav-links a:hover { color: #2563eb; }
         .nav-btn { background: #2563eb; color: white; border: none; padding: 8px 20px; border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 500; text-decoration: none; }
 
-        /* HERO */
         .hero { padding: 80px 40px 60px; text-align: center; background: white; border-bottom: 1px solid #eee; }
         .hero-badge { display: inline-block; background: #eff6ff; color: #2563eb; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 500; margin-bottom: 24px; }
         .hero h1 { font-size: 48px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
@@ -29,13 +27,11 @@
         .btn-primary:hover { background: #1d4ed8; }
         .btn-secondary:hover { background: #f5f5f5; }
 
-        /* STATS */
         .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #eee; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .stat { background: white; padding: 28px; text-align: center; }
         .stat-num { font-size: 32px; font-weight: 700; color: #2563eb; }
         .stat-label { font-size: 14px; color: #777; margin-top: 4px; }
 
-        /* MAIN TOOL */
         .tool-section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
         .tool-section h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px; }
         .tool-section .subtitle { text-align: center; color: #555; font-size: 16px; margin-bottom: 40px; }
@@ -52,6 +48,7 @@
         .chip.active { background: #eff6ff; color: #2563eb; border-color: #2563eb; }
         .chip:hover { border-color: #2563eb; }
         .api-key-group { margin-bottom: 16px; display: none; }
+        .api-key-group label { font-size: 13px; font-weight: 500; color: #444; display: block; margin-bottom: 6px; }
         .api-key-group input { width: 100%; border: 1px solid #ddd; border-radius: 8px; padding: 10px 12px; font-size: 13px; color: #1a1a1a; }
         .api-key-group input:focus { outline: none; border-color: #2563eb; }
         .run-btn { width: 100%; background: #2563eb; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; }
@@ -60,7 +57,6 @@
         .demo-link { text-align: center; margin-top: 12px; font-size: 13px; color: #777; }
         .demo-link a { color: #2563eb; cursor: pointer; text-decoration: none; }
 
-        /* RESULTS */
         .results-empty { text-align: center; padding: 60px 20px; color: #aaa; }
         .results-empty .icon { font-size: 48px; margin-bottom: 12px; }
         .score-display { text-align: center; margin-bottom: 24px; }
@@ -86,7 +82,6 @@
         .spinner { width: 32px; height: 32px; border: 3px solid #f0f0f0; border-top-color: #2563eb; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 12px; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* FEATURES */
         .features { background: white; padding: 60px 40px; border-top: 1px solid #eee; }
         .features h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 8px; }
         .features .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
@@ -96,7 +91,6 @@
         .feature-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
         .feature-card p { font-size: 14px; color: #666; line-height: 1.6; }
 
-        /* HOW IT WORKS */
         .how { padding: 60px 40px; max-width: 900px; margin: 0 auto; }
         .how h2 { font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 40px; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
@@ -105,7 +99,6 @@
         .step h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
         .step p { font-size: 14px; color: #666; line-height: 1.6; }
 
-        /* FOOTER */
         footer { background: #1a1a1a; color: #aaa; padding: 40px; text-align: center; }
         footer .footer-logo { font-size: 20px; font-weight: 700; color: white; margin-bottom: 12px; }
         footer .footer-logo span { color: #2563eb; }
@@ -132,7 +125,7 @@
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
         <a href="https://evalforge-git-453855922097.europe-west1.run.app/docs" target="_blank">API docs</a>
-        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://github.com/Infinity3020/evalforge" target="_blank">GitHub</a>
     </div>
     <a href="#tool" class="nav-btn">Try free</a>
 </nav>
@@ -143,13 +136,13 @@
     <p>EvalForge automatically scores your LLM outputs using semantic similarity and AI judges. Catch bad answers before your users do.</p>
     <div class="hero-btns">
         <button class="btn-primary" onclick="runDemo()">Run demo</button>
-        <button class="btn-secondary" onclick="window.open('https://github.com','_blank')">View on GitHub</button>
+        <button class="btn-secondary" onclick="window.open('https://github.com/Infinity3020/evalforge','_blank')">View on GitHub</button>
     </div>
 </div>
 
 <div class="stats">
     <div class="stat"><div class="stat-num">BERT</div><div class="stat-label">Semantic scoring</div></div>
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">Scoring methods</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-label">Scoring methods</div></div>
     <div class="stat"><div class="stat-num">&lt;1s</div><div class="stat-label">Per evaluation</div></div>
     <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Local scoring</div></div>
 </div>
@@ -177,10 +170,13 @@
                 <div class="chip active" onclick="selectMethod('local', this)">Local — free</div>
                 <div class="chip" onclick="selectMethod('claude', this)">Claude</div>
                 <div class="chip" onclick="selectMethod('openai', this)">GPT-4</div>
+                <div class="chip" onclick="selectMethod('local+claude', this)">Local + Claude</div>
+                <div class="chip" onclick="selectMethod('local+openai', this)">Local + GPT-4</div>
+                <div class="chip" onclick="selectMethod('local+openai+claude', this)">All three</div>
             </div>
             <div class="api-key-group" id="api-key-group">
-                <label style="font-size:13px;font-weight:500;color:#444;display:block;margin-bottom:6px">Your API key</label>
-                <input type="password" id="api-key" placeholder="Paste your API key here — never stored">
+                <label>Your API key (never stored)</label>
+                <input type="password" id="api-key" placeholder="Paste your Claude or OpenAI API key here">
             </div>
             <button class="run-btn" id="run-btn" onclick="runEval()">Run evaluation</button>
             <div class="demo-link">or <a onclick="runDemo()">load demo data</a></div>
@@ -234,6 +230,11 @@
             <p>Use Claude or GPT-4 as an intelligent judge with your own API key. Get qualitative scoring with reasoning for each answer.</p>
         </div>
         <div class="feature-card">
+            <div class="feature-icon">🔀</div>
+            <h4>Ensemble scoring</h4>
+            <p>Combine multiple scoring methods together for more reliable results. Run BERT + Claude + GPT-4 simultaneously and average the scores.</p>
+        </div>
+        <div class="feature-card">
             <div class="feature-icon">🔌</div>
             <h4>REST API</h4>
             <p>Integrate EvalForge into your CI/CD pipeline. Auto-evaluate every deployment before it goes live.</p>
@@ -248,11 +249,6 @@
             <h4>Detailed reports</h4>
             <p>See overall score, pass rate, and per-question breakdown. Know exactly which answers failed and by how much.</p>
         </div>
-        <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h4>Fast and lightweight</h4>
-            <p>Evaluates in under a second per question. Built with FastAPI and Python for maximum performance.</p>
-        </div>
     </div>
 </div>
 
@@ -260,7 +256,7 @@
     <div class="footer-logo">Eval<span>Forge</span></div>
     <p>Open source LLM evaluation framework. Free forever for local scoring.</p>
     <div class="footer-links">
-        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://github.com/Infinity3020/evalforge" target="_blank">GitHub</a>
         <a href="https://evalforge-git-453855922097.europe-west1.run.app/docs" target="_blank">API docs</a>
         <a href="#tool">Try it free</a>
     </div>
@@ -277,18 +273,20 @@
         apiGroup.style.display = (method === 'local') ? 'none' : 'block';
     }
 
-    function runDemo() {
+    async function runDemo() {
         document.getElementById('questions').value = 'What is your return policy?\nHow long does shipping take?\nDo you offer free shipping?\nWhat payment methods do you accept?\nHow do I track my order?';
         document.getElementById('expected').value = 'You can return items within 30 days with a receipt\nStandard shipping takes 5 to 7 business days\nWe offer free shipping on orders over $50\nWe accept Visa, Mastercard, PayPal and Apple Pay\nYou will receive a tracking link via email after your order ships';
         document.getElementById('predicted').value = 'Returns are accepted within one month with proof of purchase\nDelivery usually takes about a week\nShipping is free when you spend more than fifty dollars\nWe take all major credit cards and PayPal\nA tracking number will be emailed to you once your package ships';
         document.getElementById('tool').scrollIntoView({ behavior: 'smooth' });
-        setTimeout(runEval, 500);
+        await new Promise(r => setTimeout(r, 300));
+        runEval();
     }
 
     async function runEval() {
         const questions = document.getElementById('questions').value.trim().split('\n').filter(q => q.trim());
         const expected = document.getElementById('expected').value.trim().split('\n').filter(q => q.trim());
         const predicted = document.getElementById('predicted').value.trim().split('\n').filter(q => q.trim());
+        const apiKey = document.getElementById('api-key').value;
 
         if (!questions.length || !expected.length || !predicted.length) {
             alert('Please fill in all three fields before running.');
@@ -308,12 +306,18 @@
             const res = await fetch('https://evalforge-git-453855922097.europe-west1.run.app/evaluate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ questions, expected_answers: expected, predicted_answers: predicted })
+                body: JSON.stringify({
+                    questions,
+                    expected_answers: expected,
+                    predicted_answers: predicted,
+                    method: currentMethod,
+                    api_key: apiKey
+                })
             });
             const data = await res.json();
             showResults(data);
         } catch (e) {
-            document.getElementById('results-content').innerHTML = '<div style="text-align:center;padding:40px;color:#dc2626">Could not connect to EvalForge API. Make sure it is running on port 8000.</div>';
+            document.getElementById('results-content').innerHTML = '<div style="text-align:center;padding:40px;color:#dc2626">Could not connect to EvalForge API. Please try again.</div>';
         }
         document.getElementById('run-btn').disabled = false;
     }

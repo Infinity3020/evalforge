@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from app.scorer import evaluate_dataset
 
 app = FastAPI(
@@ -25,6 +25,8 @@ class EvaluationRequest(BaseModel):
     questions: List[str]
     expected_answers: List[str]
     predicted_answers: List[str]
+    method: Optional[str] = "local"
+    api_key: Optional[str] = ""
 
 @app.get("/")
 def home():
@@ -35,7 +37,9 @@ def evaluate(request: EvaluationRequest):
     results = evaluate_dataset(
         questions=request.questions,
         expected_answers=request.expected_answers,
-        predicted_answers=request.predicted_answers
+        predicted_answers=request.predicted_answers,
+        method=request.method,
+        api_key=request.api_key
     )
     return results
 
