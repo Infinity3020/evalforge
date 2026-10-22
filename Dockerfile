@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install fastapi uvicorn sentence-transformers scikit-learn numpy python-dotenv aiofiles
+RUN pip install fastapi uvicorn sentence-transformers scikit-learn numpy python-dotenv aiofiles openai anthropic
 
 EXPOSE 8080
 
