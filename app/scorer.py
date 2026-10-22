@@ -38,13 +38,19 @@ def score_with_openai(expected: str, predicted: str, api_key: str) -> dict:
 def score_with_claude(expected: str, predicted: str, api_key: str) -> dict:
     import anthropic
     client = anthropic.Anthropic(api_key=api_key)
-    prompt = f'Score how well the AI answer matches the expected answer, 0 to 10.\n\nExpected: {expected}\nAI Answer: {predicted}\n\nRespond only with JSON like: {{"score": 8.5, "reason": "..."}}'
+    prompt = f'Score how well the AI answer matches the expected answer on a scale of 0 to 10.\n\nExpected: {expected}\nAI Answer: {predicted}\n\nYou MUST respond with ONLY a JSON object, no other text. Example: {{"score": 8.5, "reason": "both answers say the same thing"}}'
     message = client.messages.create(
         model="claude-haiku-4-5",
-        max_tokens=100,
+        max_tokens=150,
         messages=[{"role": "user", "content": prompt}]
     )
-    result = json.loads(message.content[0].text)
+    raw = message.content[0].text.strip()
+    # Extract JSON if wrapped in markdown code blocks
+    if "```" in raw:
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
+    result = json.loads(raw.strip())
     score = round(float(result["score"]), 2)
     return {
         "score": score,
