@@ -174,9 +174,13 @@
                 <div class="chip" onclick="selectMethod('local+openai', this)">Local + GPT-4</div>
                 <div class="chip" onclick="selectMethod('local+openai+claude', this)">All three</div>
             </div>
-            <div class="api-key-group" id="api-key-group">
-                <label>Your API key (never stored)</label>
-                <input type="password" id="api-key" placeholder="Paste your Claude or OpenAI API key here">
+            <div class="api-key-group" id="claude-key-group">
+                <label>Anthropic API key (for Claude)</label>
+                <input type="password" id="claude-key" placeholder="Paste your Anthropic API key here">
+            </div>
+            <div class="api-key-group" id="openai-key-group">
+                <label>OpenAI API key (for GPT-4)</label>
+                <input type="password" id="openai-key" placeholder="Paste your OpenAI API key here">
             </div>
             <button class="run-btn" id="run-btn" onclick="runEval()">Run evaluation</button>
             <div class="demo-link">or <a onclick="runDemo()">load demo data</a></div>
@@ -269,8 +273,10 @@
         currentMethod = method;
         document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
         el.classList.add('active');
-        const apiGroup = document.getElementById('api-key-group');
-        apiGroup.style.display = (method === 'local') ? 'none' : 'block';
+        const needsClaude = method.includes('claude');
+        const needsOpenai = method.includes('openai');
+        document.getElementById('claude-key-group').style.display = needsClaude ? 'block' : 'none';
+        document.getElementById('openai-key-group').style.display = needsOpenai ? 'block' : 'none';
     }
 
     async function runDemo() {
@@ -286,7 +292,9 @@
         const questions = document.getElementById('questions').value.trim().split('\n').filter(q => q.trim());
         const expected = document.getElementById('expected').value.trim().split('\n').filter(q => q.trim());
         const predicted = document.getElementById('predicted').value.trim().split('\n').filter(q => q.trim());
-        const apiKey = document.getElementById('api-key').value;
+        const claudeKey = document.getElementById('claude-key').value;
+        const openaiKey = document.getElementById('openai-key').value;
+        const apiKey = claudeKey || openaiKey;
 
         if (!questions.length || !expected.length || !predicted.length) {
             alert('Please fill in all three fields before running.');
