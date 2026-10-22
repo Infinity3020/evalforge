@@ -131,7 +131,7 @@
         <a href="#tool">Try it</a>
         <a href="#features">Features</a>
         <a href="#how">How it works</a>
-        <a href="http://127.0.0.1:8000/docs" target="_blank">API docs</a>
+        <a href="https://evalforge-git-453855922097.europe-west1.run.app/docs" target="_blank">API docs</a>
         <a href="https://github.com" target="_blank">GitHub</a>
     </div>
     <a href="#tool" class="nav-btn">Try free</a>
@@ -261,7 +261,7 @@
     <p>Open source LLM evaluation framework. Free forever for local scoring.</p>
     <div class="footer-links">
         <a href="https://github.com" target="_blank">GitHub</a>
-        <a href="http://127.0.0.1:8000/docs" target="_blank">API docs</a>
+        <a href="https://evalforge-git-453855922097.europe-west1.run.app/docs" target="_blank">API docs</a>
         <a href="#tool">Try it free</a>
     </div>
 </footer>
@@ -305,7 +305,7 @@
         document.getElementById('run-btn').disabled = true;
 
         try {
-            const res = await fetch('http://127.0.0.1:8000/evaluate', {
+            const res = await fetch('https://evalforge-git-453855922097.europe-west1.run.app/evaluate', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ questions, expected_answers: expected, predicted_answers: predicted })
