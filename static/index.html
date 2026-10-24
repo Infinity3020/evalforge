@@ -10,8 +10,9 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a1a; }
 
         nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: white; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 20px; font-weight: 700; color: #1a1a1a; }
+        .logo { font-size: 20px; font-weight: 700; color: #1a1a1a; display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo span { color: #2563eb; }
+        .logo svg { width: 32px; height: 32px; flex-shrink: 0; }
         .nav-links { display: flex; gap: 28px; font-size: 14px; color: #555; }
         .nav-links a { text-decoration: none; color: #555; }
         .nav-links a:hover { color: #2563eb; }
@@ -108,8 +109,9 @@
         .step p { font-size: 14px; color: #666; line-height: 1.6; }
 
         footer { background: #1a1a1a; color: #aaa; padding: 40px; text-align: center; }
-        footer .footer-logo { font-size: 20px; font-weight: 700; color: white; margin-bottom: 12px; }
-        footer .footer-logo span { color: #2563eb; }
+        footer .footer-logo { font-size: 20px; font-weight: 700; color: white; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        footer .footer-logo span { color: #60a5fa; }
+        footer .footer-logo svg { width: 28px; height: 28px; }
         footer p { font-size: 14px; margin-bottom: 16px; }
         footer .footer-links { display: flex; gap: 20px; justify-content: center; font-size: 14px; }
         footer .footer-links a { color: #aaa; text-decoration: none; }
@@ -127,7 +129,16 @@
 <body>
 
 <nav>
-    <div class="logo">Eval<span>Forge</span></div>
+    <div class="logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#2563eb"/>
+            <path d="M16 6c-2.2 0-4 1.4-4.6 3.4C9.8 9.8 8 11.7 8 14c0 .8.2 1.5.5 2.2C7.6 17 7 18.2 7 19.5 7 21.9 9 24 11.5 24c.5 0 1-.1 1.5-.3V25h6v-1.3c.5.2 1 .3 1.5.3 2.5 0 4.5-2.1 4.5-4.5 0-1.3-.6-2.5-1.5-3.3.3-.7.5-1.4.5-2.2 0-2.3-1.8-4.2-3.4-4.6C19.5 7.5 17.9 6 16 6z" fill="white" opacity="0.9"/>
+            <circle cx="13" cy="15" r="1.5" fill="#2563eb"/>
+            <circle cx="19" cy="15" r="1.5" fill="#2563eb"/>
+            <path d="M13 18.5c.8.8 2 1.3 3 1.3s2.2-.5 3-1.3" stroke="#2563eb" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        Eval<span>Forge</span>
+    </div>
     <div class="nav-links">
         <a href="#tool">Try it</a>
         <a href="#features">Features</a>
@@ -273,7 +284,16 @@
 </div>
 
 <footer>
-    <div class="footer-logo">Eval<span>Forge</span></div>
+    <div class="footer-logo">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#2563eb"/>
+            <path d="M16 6c-2.2 0-4 1.4-4.6 3.4C9.8 9.8 8 11.7 8 14c0 .8.2 1.5.5 2.2C7.6 17 7 18.2 7 19.5 7 21.9 9 24 11.5 24c.5 0 1-.1 1.5-.3V25h6v-1.3c.5.2 1 .3 1.5.3 2.5 0 4.5-2.1 4.5-4.5 0-1.3-.6-2.5-1.5-3.3.3-.7.5-1.4.5-2.2 0-2.3-1.8-4.2-3.4-4.6C19.5 7.5 17.9 6 16 6z" fill="white" opacity="0.9"/>
+            <circle cx="13" cy="15" r="1.5" fill="#2563eb"/>
+            <circle cx="19" cy="15" r="1.5" fill="#2563eb"/>
+            <path d="M13 18.5c.8.8 2 1.3 3 1.3s2.2-.5 3-1.3" stroke="#2563eb" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        </svg>
+        Eval<span>Forge</span>
+    </div>
     <p>Open source LLM evaluation framework. Free forever for local scoring.</p>
     <div class="footer-links">
         <a href="https://github.com/Infinity3020/evalforge" target="_blank">GitHub</a>
